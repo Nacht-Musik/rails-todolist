@@ -1,0 +1,11 @@
+-# %h1 Pages#index
+-# %p Find me in app/views/pages/index.html.haml
+
+%h2 my todo list
+%ul
+  %li
+    = link_to 'タスクを追加する', new_task_path
+%hr
+- if @my_tasks
+  - @my_tasks.each do |task|
+    = render 'tasks/task_card', task: task

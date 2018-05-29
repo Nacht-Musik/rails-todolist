@@ -20,6 +20,9 @@ gem 'devise'
 gem 'cancancan'
 gem 'rails_admin'
 
+# erb to haml
+gem 'erb2haml'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

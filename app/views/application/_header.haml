@@ -1,0 +1,18 @@
+- path = request.path
+%header#app--header
+  .title
+    %h1.site-title
+      TODO-LIST
+    %nav
+      %ul
+        %li
+          = link_to 'Home', root_path, class: "#{'active' if path == '/'}"
+        - unless user_signed_in?
+          %li
+            = link_to 'SignUp', new_user_registration_path, class: "#{'active' if path == '/users/sign_up'}"
+          %li
+            = link_to 'Login', new_user_session_path, class: "#{'active' if path == '/users/sign_in'}"
+        - if user_signed_in?
+          %li
+            = link_to 'Logout', destroy_user_session_path
+  %hr
