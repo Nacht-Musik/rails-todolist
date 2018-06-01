@@ -13,7 +13,14 @@
     = f.label :detail
     = f.text_field :detail
   .field
-    = f.label :status
-    = f.text_field :status
+    = f.label :status_id
+    = f.collection_select :status_id, Status.all, :id, :name, :selected => @task.status_id
+  .field
+    -# = f.label :user_id
+    - if @task.user_id.nil?
+      = f.text_field :user_id
+    - else
+      = @task.user_id
+      = f.text_field :user_id
   .actions
     = f.submit 'Save'

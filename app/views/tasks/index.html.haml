@@ -5,6 +5,8 @@
     %tr
       %th Title
       %th Detail
+      %th Status
+      %th User
       %th
       %th
       %th
@@ -14,6 +16,8 @@
       %tr
         %td= task.name
         %td= task.detail
+        %td= @statuses.find(task.status_id).name
+        %td= @users.find(task.user_id).name
         %td= link_to 'Show', task
         %td= link_to 'Edit', edit_task_path(task)
         %td= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }
